@@ -442,7 +442,7 @@ export default function HojaRegistros() {
     const tipoCitaList = (value) => (Array.isArray(value) ? value : value ? [value] : []);
 
     return (
-        <div className="w-full min-h-screen rounded-[14px]">
+    <div className="w-full min-h-screen rounded-[14px] px-4 py-2 md:px-8 lg:px-10">
             <section className="mb-4 text-[#131E5C]">
                 <div className="grid gap-5 py-5 lg:grid-cols-[minmax(0,1fr)_auto]">
                     <div className="min-w-0">

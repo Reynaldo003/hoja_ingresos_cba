@@ -54,6 +54,12 @@ function toYMD(value) {
     const pad = (n) => String(n).padStart(2, "0");
     return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
 }
+const MEXICO_TZ = "America/Mexico_City";
+function mexicoYMD(value) {
+    const d = new Date(value);
+    if (Number.isNaN(d.getTime())) return "";
+    return d.toLocaleDateString("en-CA", { timeZone: MEXICO_TZ });
+}
 function ymdToInt(value) {
     if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
     return Number(value.replaceAll("-", ""));
@@ -366,14 +372,22 @@ export default function HojaRegistros() {
         });
     }, [filtered, sort]);
 
+    const citasSeleccionadas = useMemo(() => {
+        return (rows || []).filter((row) => {
+            const fecha = row.fecha_ingreso;
+            if (!fecha) return false;
+            return mexicoYMD(fecha) === selectedDate;
+        });
+    }, [rows, selectedDate]);
+
     const metricas = useMemo(() => {
-        const total = filtered.length;
-        const citados = filtered.filter((r) => boolFromAny(r.citado)).length;
-        const asistencias = filtered.filter((r) => boolFromAny(r.asistencia)).length;
-        const clientes = new Set(filtered.map((r) => getTelefono(r)).filter(Boolean)).size;
+        const total = citasSeleccionadas.length;
+        const citados = citasSeleccionadas.filter((r) => boolFromAny(r.citado)).length;
+        const asistencias = citasSeleccionadas.filter((r) => boolFromAny(r.asistencia)).length;
+        const clientes = new Set(citasSeleccionadas.map((r) => getTelefono(r)).filter(Boolean)).size;
         const tasa = citados > 0 ? Math.round((asistencias / citados) * 100) : 0;
         return { total, citados, asistencias, clientes, tasa };
-    }, [filtered]);
+    }, [citasSeleccionadas]);
 
     function toggleSort(key) {
         setSort((prev) => {

@@ -1,5 +1,6 @@
 // src/pages/HojaIngresos/HojaIngresos.jsx
 import { useEffect, useMemo, useState } from "react";
+import logoVW from "../../assets/logo-vw.png";
 import { createPortal } from "react-dom";
 import {
     ArrowUpDown, Calendar, CalendarDays, CheckCircle2, ChevronDown, ChevronLeft,
@@ -446,9 +447,12 @@ export default function HojaRegistros() {
             <section className="mb-4 text-[#131E5C]">
                 <div className="grid gap-5 py-5 lg:grid-cols-[minmax(0,1fr)_auto]">
                     <div className="min-w-0">
-                        <h1 className="text-[32px] font-semibold leading-none tracking-[-0.045em] md:text-[46px]">
-                            Hoja de Ingresos
-                        </h1>
+    <div className="flex items-center gap-3">
+        <img src={logoVW} alt="Volkswagen" className="h-11 w-11 shrink-0 object-contain md:h-14 md:w-14" />
+        <h1 className="text-[32px] font-semibold leading-none tracking-[-0.045em] md:text-[46px]">
+            Hoja de Ingresos
+        </h1>
+    </div>
                         <p className="mt-3 max-w-2xl text-[13px] font-medium leading-6">
                             Control diario de ingresos de servicio Volkswagen R&amp;R — {formatFechaLarga(selectedDate)} · {AGENCIA_LABEL}
                         </p>

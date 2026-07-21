@@ -309,19 +309,19 @@ export default function HojaRegistros() {
     ];
 
     async function refreshList() {
-        setLoadingList(true);
-        try {
-            const data = await apiHojaIngresos.list();
-            const soloCordoba = (Array.isArray(data) ? data : []).filter((row) => esCordoba(row.agencia));
-            setRows(soloCordoba);
-        } catch (error) {
-            console.error(error);
-            setRows([]);
-            alert("No se pudo cargar la hoja de ingresos.");
-        } finally {
-            setLoadingList(false);
-        }
+    setLoadingList(true);
+    try {
+        const data = await apiHojaIngresos.list({ agencia: "VW Cordoba" });
+        const soloCordoba = (Array.isArray(data) ? data : []).filter((row) => esCordoba(row.agencia));
+        setRows(soloCordoba);
+    } catch (error) {
+        console.error(error);
+        setRows([]);
+        alert("No se pudo cargar la hoja de ingresos.");
+    } finally {
+        setLoadingList(false);
     }
+}
 
     useEffect(() => { refreshList(); }, []);
 

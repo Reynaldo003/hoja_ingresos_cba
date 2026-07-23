@@ -102,7 +102,7 @@ function EmptyState() {
     return (
         <div className="flex flex-col items-center justify-center px-4 py-16 text-center">
             <ClipboardList className="mb-3 h-7 w-7" style={{ color: COLOR.inkFaint }} />
-            <p className="text-[13px] font-semibold" style={{ color: COLOR.inkSoft }}>
+            <p className="text-[13px]" style={{ color: COLOR.inkSoft }}>
                 No hay registros con los filtros seleccionados
             </p>
             <p className="mt-1 text-[12px]" style={{ color: COLOR.inkFaint }}>
@@ -115,7 +115,7 @@ function EmptyState() {
 function FilterBlock({ label, children }) {
     return (
         <div>
-            <div className="mb-1.5 text-[10.5px] font-semibold uppercase tracking-wide" style={{ color: COLOR.inkFaint }}>
+            <div className="mb-1.5 text-[10.5px] uppercase tracking-wide" style={{ color: COLOR.inkFaint }}>
                 {label}
             </div>
             {children}
@@ -126,11 +126,11 @@ function FilterBlock({ label, children }) {
 function Field({ label, children }) {
     return (
         <div>
-            <div className="mb-1 text-[11px] font-semibold uppercase tracking-wide" style={{ color: COLOR.inkFaint }}>
+            <div className="mb-1 text-[11px] uppercase tracking-wide" style={{ color: COLOR.inkFaint }}>
                 {label}
             </div>
-            <div className="text-[13.5px] font-semibold" style={{ color: COLOR.ink }}>
-                {children || <span style={{ color: COLOR.inkFaint, fontWeight: 500 }}>—</span>}
+            <div className="text-[13.5px]" style={{ color: COLOR.ink }}>
+                {children || <span style={{ color: COLOR.inkFaint }}>—</span>}
             </div>
         </div>
     );
@@ -149,10 +149,10 @@ function Modal({ open, title, subtitle, onClose, children }) {
                     >
                         <div className="flex items-center justify-between gap-3 px-5 py-4" style={{ background: COLOR.brand }}>
                             <div className="min-w-0">
-                                <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-white/50">
+                                <div className="text-[10px] uppercase tracking-[0.22em] text-white/50">
                                     {subtitle || "Registro de servicio"}
                                 </div>
-                                <span className="mt-1 block truncate text-[17px] font-semibold text-white">{title}</span>
+                                <span className="mt-1 block truncate text-[17px] text-white">{title}</span>
                             </div>
                             <button
                                 type="button" onClick={onClose} aria-label="Cerrar"
@@ -167,7 +167,7 @@ function Modal({ open, title, subtitle, onClose, children }) {
                         <div className="flex justify-end border-t px-5 py-4" style={{ borderColor: COLOR.line }}>
                             <button
                                 type="button" onClick={onClose}
-                                className="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-[13px] font-semibold"
+                                className="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-[13px]"
                                 style={{ borderColor: COLOR.line, color: COLOR.inkSoft }}
                             >
                                 Cerrar
@@ -188,7 +188,7 @@ function BooleanButton({ row, field, updatingInline, onToggle }) {
         <button
             type="button" disabled={isUpdating}
             onClick={(event) => { event.stopPropagation(); onToggle(row, field); }}
-            className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[12px] font-semibold transition-opacity"
+            className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[12px] transition-opacity"
             style={{
                 background: value ? COLOR.brand : COLOR.surface, borderColor: COLOR.brand,
                 color: value ? COLOR.surface : COLOR.brand, opacity: isUpdating ? 0.6 : 1,
@@ -209,9 +209,9 @@ function MetricCard({ icon: Icon, label, value, hint }) {
                     <Icon className="h-6 w-6" style={{ color: COLOR.brand }} />
                 </div>
                 <div className="min-w-0">
-                    <div className="text-[26px] font-semibold leading-none tabular-nums" style={{ color: COLOR.brand }}>{value}</div>
-                    <div className="mt-1 text-[12px] font-semibold" style={{ color: COLOR.brand }}>{label}</div>
-                    <div className="mt-1 text-[11px] font-semibold" style={{ color: COLOR.inkFaint }}>{hint}</div>
+                    <div className="text-[26px] leading-none tabular-nums" style={{ color: COLOR.brand }}>{value}</div>
+                    <div className="mt-1 text-[12px]" style={{ color: COLOR.brand }}>{label}</div>
+                    <div className="mt-1 text-[11px]" style={{ color: COLOR.inkFaint }}>{hint}</div>
                 </div>
             </div>
         </div>
@@ -231,7 +231,7 @@ function ViewToggle({ vista, setVista }) {
                 return (
                     <button
                         key={op.key} type="button" onClick={() => setVista(op.key)}
-                        className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[12.5px] font-bold transition"
+                        className="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[12.5px] transition"
                         style={{ background: active ? COLOR.brand : "transparent", color: active ? "#fff" : COLOR.brand }}
                     >
                         <Icon className="h-3.5 w-3.5" /> {op.label}
@@ -251,7 +251,7 @@ function DateNav({ selectedDate, setSelectedDate }) {
                 </button>
                 <button
                     type="button" onClick={() => setSelectedDate(toYMD(new Date()))}
-                    className="border-x px-3 py-2 text-[12.5px] font-bold" style={{ borderColor: COLOR.line, color: COLOR.brand }}
+                    className="border-x px-3 py-2 text-[12.5px]" style={{ borderColor: COLOR.line, color: COLOR.brand }}
                 >
                     Hoy
                 </button>
@@ -265,12 +265,12 @@ function DateNav({ selectedDate, setSelectedDate }) {
                 <input
                     type="date" value={selectedDate}
                     onChange={(e) => e.target.value && setSelectedDate(e.target.value)}
-                    className="text-[12.5px] font-bold outline-none" style={{ color: COLOR.brand, background: "transparent" }}
+                    className="text-[12.5px] outline-none" style={{ color: COLOR.brand, background: "transparent" }}
                 />
             </div>
 
             <span
-                className="inline-flex items-center rounded-xl border px-3 py-2 text-[12.5px] font-bold"
+                className="inline-flex items-center rounded-xl border px-3 py-2 text-[12.5px]"
                 style={{ borderColor: COLOR.line, color: COLOR.brand, background: COLOR.brandSoft }}
             >
                 {AGENCIA_LABEL}
@@ -463,11 +463,11 @@ export default function HojaRegistros() {
                     <div className="min-w-0">
     <div className="flex items-center gap-3">
         <img src={logoVW} alt="Volkswagen" className="h-11 w-11 shrink-0 object-contain md:h-14 md:w-14" />
-        <h1 className="text-[32px] font-semibold leading-none tracking-[-0.045em] md:text-[46px]">
+        <h1 className="font-head text-[32px] font-semibold leading-none tracking-[-0.045em] md:text-[46px]">
             Hoja de Ingresos
         </h1>
     </div>
-                        <p className="mt-3 max-w-2xl text-[13px] font-medium leading-6">
+                        <p className="mt-3 max-w-2xl text-[13px] leading-6">
                             Control diario de ingresos de servicio Volkswagen R&amp;R — {formatFechaLarga(selectedDate)} · {AGENCIA_LABEL}
                         </p>
                     </div>
@@ -508,7 +508,7 @@ export default function HojaRegistros() {
                                             value={filters.q}
                                             onChange={(event) => setFilters((prev) => ({ ...prev, q: event.target.value }))}
                                             placeholder="Cliente, teléfono, VIN, asesor, orden..."
-                                            className="w-full text-[13px] font-medium outline-none"
+                                            className="w-full text-[13px] outline-none"
                                             style={{ color: COLOR.ink }}
                                         />
                                         {filters.q && (
@@ -525,7 +525,7 @@ export default function HojaRegistros() {
                                     <input
                                         type="date" value={filters.desde}
                                         onChange={(event) => setFilters((prev) => ({ ...prev, desde: event.target.value }))}
-                                        className="w-full rounded-lg border px-3 py-2 text-[13px] font-medium outline-none"
+                                        className="w-full rounded-lg border px-3 py-2 text-[13px] outline-none"
                                         style={{ borderColor: COLOR.line, color: COLOR.ink }}
                                     />
                                 </FilterBlock>
@@ -536,7 +536,7 @@ export default function HojaRegistros() {
                                     <input
                                         type="date" value={filters.hasta}
                                         onChange={(event) => setFilters((prev) => ({ ...prev, hasta: event.target.value }))}
-                                        className="w-full rounded-lg border px-3 py-2 text-[13px] font-medium outline-none"
+                                        className="w-full rounded-lg border px-3 py-2 text-[13px] outline-none"
                                         style={{ borderColor: COLOR.line, color: COLOR.ink }}
                                     />
                                 </FilterBlock>
@@ -545,10 +545,10 @@ export default function HojaRegistros() {
                             <div className="md:col-span-1">
                                 <FilterBlock label=" ">
                                     <div className="flex gap-1.5">
-                                        <button type="button" onClick={setHoy} title="Filtrar por hoy" className="flex-1 rounded-lg py-2 text-[11px] font-semibold" style={{ background: COLOR.brandSoft, color: COLOR.brand }}>
+                                        <button type="button" onClick={setHoy} title="Filtrar por hoy" className="flex-1 rounded-lg py-2 text-[11px]" style={{ background: COLOR.brandSoft, color: COLOR.brand }}>
                                             Hoy
                                         </button>
-                                        <button type="button" onClick={resetFilters} title="Limpiar filtros" className="flex-1 rounded-lg border py-2 text-[11px] font-semibold" style={{ borderColor: COLOR.line, color: COLOR.inkSoft }}>
+                                        <button type="button" onClick={resetFilters} title="Limpiar filtros" className="flex-1 rounded-lg border py-2 text-[11px]" style={{ borderColor: COLOR.line, color: COLOR.inkSoft }}>
                                             Limpiar
                                         </button>
                                     </div>
@@ -557,7 +557,7 @@ export default function HojaRegistros() {
                         </div>
 
                         <div className="mt-2.5 flex items-center gap-1.5 text-[11.5px]" style={{ color: COLOR.inkFaint }}>
-                            <span className="font-semibold" style={{ color: COLOR.ink }}>{sorted.length}</span>
+                            <span style={{ color: COLOR.ink }}>{sorted.length}</span>
                             registro{sorted.length === 1 ? "" : "s"} encontrado{sorted.length === 1 ? "" : "s"}
                         </div>
                     </div>
@@ -569,7 +569,7 @@ export default function HojaRegistros() {
                                 <thead className="sticky top-0 z-10" style={{ background: COLOR.brand }}>
                                     <tr>
                                         {columns.map((column) => (
-                                            <th key={column.key} className="whitespace-nowrap px-4 py-2.5 text-[11.5px] font-semibold uppercase tracking-wide text-white/90">
+                                            <th key={column.key} className="whitespace-nowrap px-4 py-2.5 text-[11.5px] uppercase tracking-wide text-white/90">
                                                 {column.sortable ? (
                                                     <button type="button" onClick={() => toggleSort(column.key)} className="inline-flex items-center gap-1">
                                                         {column.label}
@@ -600,7 +600,7 @@ export default function HojaRegistros() {
                                             >
                                                 <td className="whitespace-nowrap px-4 py-2.5 tabular-nums" style={{ color: COLOR.inkSoft }}>{formatDate(row.fecha_ingreso)}</td>
                                                 <td className="whitespace-nowrap px-4 py-2.5">
-                                                    <div className="font-semibold" style={{ color: COLOR.ink }}>{getClienteNombre(row)}</div>
+                                                    <div style={{ color: COLOR.ink }}>{getClienteNombre(row)}</div>
                                                     <div className="text-[11px]" style={{ color: COLOR.inkFaint }}>{getTelefono(row)}</div>
                                                 </td>
                                                 <td className="whitespace-nowrap px-4 py-2.5"><BooleanButton row={row} field="asistencia" updatingInline={updatingInline} onToggle={patchBoolean} /></td>
@@ -610,7 +610,7 @@ export default function HojaRegistros() {
                                                 <td className="whitespace-nowrap px-4 py-2.5" style={{ color: COLOR.inkSoft }}>{row.torre || "—"}</td>
                                                 <td className="whitespace-nowrap px-4 py-2.5">
                                                     {row.tipo_cita ? (
-                                                        <span className="inline-block rounded px-2 py-0.5 text-[11px] font-semibold" style={{ background: COLOR.surface, color: COLOR.brand }}>{row.tipo_cita}</span>
+                                                        <span className="inline-block rounded px-2 py-0.5 text-[11px]" style={{ background: COLOR.surface, color: COLOR.brand }}>{row.tipo_cita}</span>
                                                     ) : <span style={{ color: COLOR.inkFaint }}>—</span>}
                                                 </td>
                                                 <td className="whitespace-nowrap px-4 py-2.5 font-mono text-[12px]" style={{ color: COLOR.inkSoft }}>{row.vin || "—"}</td>
@@ -627,7 +627,7 @@ export default function HojaRegistros() {
                     <div className="grid gap-2.5 lg:hidden">
                         {loadingList ? (
                             <div className="rounded-[24px] border p-5" style={{ background: COLOR.surface, borderColor: COLOR.line }}>
-                                <div className="flex items-center gap-2 font-semibold" style={{ color: COLOR.ink }}>
+                                <div className="flex items-center gap-2" style={{ color: COLOR.ink }}>
                                     <Loader2 className="h-4 w-4 animate-spin" /> Cargando...
                                 </div>
                             </div>
@@ -641,13 +641,13 @@ export default function HojaRegistros() {
                                 >
                                     <div className="flex items-start justify-between gap-3">
                                         <div className="min-w-0">
-                                            <div className="truncate text-[14px] font-semibold" style={{ color: COLOR.ink }}>{getClienteNombre(row)}</div>
+                                            <div className="truncate text-[14px]" style={{ color: COLOR.ink }}>{getClienteNombre(row)}</div>
                                             <div className="mt-0.5 text-[12px]" style={{ color: COLOR.inkSoft }}>{getTelefono(row)}</div>
                                             <div className="mt-0.5 text-[11.5px] tabular-nums" style={{ color: COLOR.inkFaint }}>{formatDate(row.fecha_ingreso)}</div>
-                                            {row.asesor ? <div className="mt-2 text-[12px] font-semibold" style={{ color: COLOR.brand }}>{row.asesor}</div> : null}
+                                            {row.asesor ? <div className="mt-2 text-[12px]" style={{ color: COLOR.brand }}>{row.asesor}</div> : null}
                                         </div>
                                         <span
-                                            className="inline-flex shrink-0 rounded-md px-2.5 py-1 text-[11px] font-semibold"
+                                            className="inline-flex shrink-0 rounded-md px-2.5 py-1 text-[11px]"
                                             style={boolFromAny(row.citado) ? { background: COLOR.okSoft, color: COLOR.ok } : { background: COLOR.dangerSoft, color: COLOR.danger }}
                                         >
                                             {boolFromAny(row.citado) ? "Citado" : "No citado"}
@@ -713,7 +713,7 @@ export default function HojaRegistros() {
                                             ? detalle.tipo_cita
                                             : String(detalle.tipo_cita || "").split(",").map((t) => t.trim()).filter(Boolean)
                                         ).map((tipo) => (
-                                            <span key={tipo} className="rounded px-2 py-0.5 text-[11px] font-semibold" style={{ background: COLOR.brandSoft, color: COLOR.brand }}>{tipo}</span>
+                                            <span key={tipo} className="rounded px-2 py-0.5 text-[11px]" style={{ background: COLOR.brandSoft, color: COLOR.brand }}>{tipo}</span>
                                         ))}
                                     </div>
                                 ) : "—"}

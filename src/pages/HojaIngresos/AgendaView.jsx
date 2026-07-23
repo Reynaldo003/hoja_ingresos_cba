@@ -270,12 +270,12 @@ function ChartCard({ title, value, data, tone = "brand" }) {
 
   return (
     <div className="min-w-0 border-r px-5 py-4 last:border-r-0" style={{ borderColor: COLOR.line }}>
-      <div className="text-[13px] font-bold" style={{ color: COLOR.brand }}>{title}</div>
-      <div className="mt-1 text-[24px] font-semibold leading-none tabular-nums" style={{ color: COLOR.brand }}>{value}</div>
+      <div className="text-[13px]" style={{ color: COLOR.brand }}>{title}</div>
+      <div className="mt-1 text-[24px] leading-none tabular-nums" style={{ color: COLOR.brand }}>{value}</div>
       <div className="mt-2" style={{ color: selected }}>
         <Sparkline data={data} />
       </div>
-      <div className="mt-1 grid grid-cols-6 text-center text-[9px] font-semibold" style={{ color: COLOR.inkFaint }}>
+      <div className="mt-1 grid grid-cols-6 text-center text-[9px]" style={{ color: COLOR.inkFaint }}>
         {["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"].map((d) => <span key={d}>{d}</span>)}
       </div>
     </div>
@@ -293,7 +293,7 @@ function AdvisorAvatar({ nombre, color }) {
 
   return (
     <div
-      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[13px] font-bold"
+      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[13px]"
       style={{ background: color.bg, border: `1px solid ${color.line}`, color: color.text }}
     >
       {iniciales}
@@ -311,10 +311,10 @@ function AdvisorStats({ asesor, color, citasAsesor }) {
       <AdvisorAvatar nombre={asesor.nombre} color={color} />
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
-          <div className="truncate text-[13px] font-bold" style={{ color: COLOR.brand }}>{asesor.nombre}</div>
+          <div className="truncate text-[13px]" style={{ color: COLOR.brand }}>{asesor.nombre}</div>
           <span className="h-2 w-2 rounded-full" style={{ background: color.dot }} />
         </div>
-        <div className="mt-1 text-[10.5px] font-semibold" style={{ color: COLOR.inkFaint }}>
+        <div className="mt-1 text-[10.5px]" style={{ color: COLOR.inkFaint }}>
           <span style={{ color: COLOR.brand }}>{total}</span> citas · <span style={{ color: COLOR.ok }}>{asistencias}</span> asistencias
         </div>
         <div className="mt-2 h-1.5 overflow-hidden rounded-full" style={{ background: COLOR.line }}>
@@ -341,7 +341,7 @@ function EstadoPill({ cita }) {
 
   return (
     <span
-      className="inline-flex items-center rounded-full border px-2 py-0.5 text-[9.5px] font-black"
+      className="inline-flex items-center rounded-full border px-2 py-0.5 text-[9.5px]"
       style={{ background: meta.bg, borderColor: meta.line, color: meta.text }}
     >
       {meta.label}
@@ -354,7 +354,7 @@ function TipoBadge({ tipo }) {
 
   return (
     <span
-      className="inline-flex items-center rounded-full border px-2 py-0.5 text-[9.5px] font-black"
+      className="inline-flex items-center rounded-full border px-2 py-0.5 text-[9.5px]"
       style={{ background: meta.bg, borderColor: meta.line, color: meta.text }}
     >
       {meta.label}
@@ -372,7 +372,7 @@ function AttendanceButton({ children, icon: Icon, active, disabled, onClick, ton
       type="button"
       disabled={disabled}
       onClick={onClick}
-      className="inline-flex items-center justify-center gap-1 rounded-full border px-2.5 py-1 text-[10px] font-black transition hover:-translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-60"
+      className="inline-flex items-center justify-center gap-1 rounded-full border px-2.5 py-1 text-[10px] transition hover:-translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-60"
       style={{
         background: active ? palette.bgActive : "#FFFFFF",
         borderColor: active ? palette.line : "#DDE5EF",
@@ -430,15 +430,15 @@ function CitaCard({ cita, compact = false, abrirDetalle, onSetAsistencia, updati
       </div>
 
       <div className="pl-2 pr-7">
-        <div className="text-[10px] font-black tabular-nums" style={{ color: metaPrincipal.text }}>
+        <div className="text-[10px] tabular-nums" style={{ color: metaPrincipal.text }}>
           {horaCorta(cita.fecha_ingreso || cita.fecha_cita)}
         </div>
 
-        <div className="mt-1 truncate text-[11px] font-black uppercase tracking-wide" style={{ color: COLOR.brand }}>
+        <div className="mt-1 truncate text-[11px] uppercase tracking-wide" style={{ color: COLOR.brand }}>
           {cliente}
         </div>
 
-        <div className="mt-1 space-y-0.5 text-[10px] font-semibold leading-4" style={{ color: COLOR.inkSoft }}>
+        <div className="mt-1 space-y-0.5 text-[10px] leading-4" style={{ color: COLOR.inkSoft }}>
           <div className="truncate">{modelo}</div>
           {!compact ? <div className="truncate tabular-nums">{telefonoCorto}</div> : null}
         </div>
@@ -453,7 +453,7 @@ function CitaCard({ cita, compact = false, abrirDetalle, onSetAsistencia, updati
 
       {!compact ? (
         <div className="mt-2 border-t border-dashed pl-2 pt-2" style={{ borderColor: "#DDE5EF" }}>
-          <div className="mb-1 text-[9.5px] font-black" style={{ color: COLOR.inkFaint }}>
+          <div className="mb-1 text-[9.5px]" style={{ color: COLOR.inkFaint }}>
             Reportar asistencia
           </div>
 
@@ -609,7 +609,7 @@ export default function AgendaView({
     return (
       <div className="rounded-[22px] border bg-white px-4 py-16 text-center" style={{ borderColor: COLOR.line }}>
         <Users className="mx-auto mb-3 h-8 w-8" style={{ color: COLOR.inkFaint }} />
-        <p className="text-[14px] font-bold" style={{ color: COLOR.inkSoft }}>No hay asesores configurados para VW Córdoba</p>
+        <p className="text-[14px]" style={{ color: COLOR.inkSoft }}>No hay asesores configurados para VW Córdoba</p>
       </div>
     );
   }
@@ -622,9 +622,9 @@ export default function AgendaView({
         <ChartCard title="No Show" value={estadisticas.noShow} data={serieSemana.noShow} tone="warn" />
         <div className="flex items-center justify-between gap-4 px-5 py-4">
           <div>
-            <div className="text-[13px] font-bold" style={{ color: COLOR.brand }}>Tasa de Asistencia</div>
-            <div className="mt-1 text-[28px] font-semibold leading-none" style={{ color: COLOR.brand }}>{estadisticas.tasaAsistencia}%</div>
-            <div className="mt-2 text-[11px] font-bold" style={{ color: COLOR.ok }}>+12% vs ayer</div>
+            <div className="text-[13px]" style={{ color: COLOR.brand }}>Tasa de Asistencia</div>
+            <div className="mt-1 text-[28px] leading-none" style={{ color: COLOR.brand }}>{estadisticas.tasaAsistencia}%</div>
+            <div className="mt-2 text-[11px]" style={{ color: COLOR.ok }}>+12% vs ayer</div>
           </div>
           <Donut value={estadisticas.tasaAsistencia} />
         </div>
@@ -639,7 +639,7 @@ export default function AgendaView({
           style={{ display: "grid", gridTemplateColumns, gridTemplateRows, width: gridWidth }}
         >
           <div
-            className="sticky left-0 top-0 z-30 flex items-center px-5 text-[11px] font-black uppercase tracking-wide"
+            className="sticky left-0 top-0 z-30 flex items-center px-5 text-[11px] uppercase tracking-wide"
             style={{
               gridColumn: "1 / 2",
               gridRow: "1 / 2",
@@ -657,7 +657,7 @@ export default function AgendaView({
             return (
               <div
                 key={slot}
-                className="sticky top-0 z-20 flex items-center justify-center text-[11px] font-bold tabular-nums"
+                className="sticky top-0 z-20 flex items-center justify-center text-[11px] tabular-nums"
                 style={{
                   gridColumn: `${2 + index} / span 1`,
                   gridRow: "1 / 2",
@@ -741,7 +741,7 @@ export default function AgendaView({
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center gap-4 text-[11px] font-bold" style={{ color: COLOR.inkFaint }}>
+      <div className="flex flex-wrap items-center gap-4 text-[11px]" style={{ color: COLOR.inkFaint }}>
         <TipoBadge tipo="Servicio" />
         <TipoBadge tipo="Reparación" />
         <TipoBadge tipo="Diagnóstico" />
